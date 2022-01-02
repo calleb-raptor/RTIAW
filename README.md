@@ -5,3 +5,7 @@
     https://raytracing.github.io/books/RayTracingInOneWeekend.html
 
 ##### Lets see how it goes!
+
+### getting started:
+
+##### Write image to a file (PPM)

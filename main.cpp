@@ -7,7 +7,8 @@ int main()
     const int image_height = 256;
 
     // render
-    std::cout << "Image width: " << image_width << ' ' << image_height << "\n255\n";
+    std::cout << "P3\n"
+              << image_width << ' ' << image_height << "\n255\n";
 
     // we want to write pixels in each row left to right
     // rows are written top to bottom

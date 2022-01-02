@@ -30,6 +30,8 @@
 
 ##### An important assumption here is that: if a surface faces a light, the light will reach that surface and not be blocked or in shadow.
 
+##### https://en.wikipedia.org/wiki/Ray_tracing_(graphics)#Detailed_description_of_ray_tracing_computer_algorithm_and_its_genesis
+
 ### getting started:
 
 ##### Write image to a file (PPM)

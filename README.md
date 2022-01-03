@@ -34,4 +34,14 @@
 
 ### getting started:
 
-##### Write image to a file (PPM)
+##### Followed along more of the tutorial and wrote out the code as displayed in the resource - understanding each component is key here as this is the first time i've dealt with any form of CGI in programming
+
+##### key takeaways:
+
+##### 1. vec3 creates a vector object of size 3 - this is used for both direction and color (xyz/RGB)
+
+##### 2. the ray class defines the origin and direction of the light ray
+
+##### 3. color is defined per pixel based on the RGB value provided
+
+##### 4. in main.cpp the properties are defined, first defining image dimensions, then establishing the 'camera' i.e. the perspective, then we proceed to render by looping first top to bottom by incrementing down each loop, within that row loop, we loop through each pixel left to right, defining the ray, and the pizel color in each iteration, ultimately writing that pixel color to the ppm file."

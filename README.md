@@ -45,3 +45,5 @@
 ##### 3. color is defined per pixel based on the RGB value provided
 
 ##### 4. in main.cpp the properties are defined, first defining image dimensions, then establishing the 'camera' i.e. the perspective, then we proceed to render by looping first top to bottom by incrementing down each loop, within that row loop, we loop through each pixel left to right, defining the ray, and the pizel color in each iteration, ultimately writing that pixel color to the ppm file."
+
+##### next step - spheres

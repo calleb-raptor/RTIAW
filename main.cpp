@@ -36,8 +36,48 @@
 //     std::cerr << "\nDone.\n";
 // }
 
+/*
+ * 𝑡2𝐛⋅𝐛+2𝑡𝐛⋅(𝐀−𝐂)+(𝐀−𝐂)⋅(𝐀−𝐂)−𝑟2=0
+ */
+
+// bool hit_sphere(const point3 &center, float radius, const ray &r)
+// {
+//     // Find the distance between the origin point and the center point
+//     vec3 oc = r.origin() - center;
+//     // get the dot product of 2 vectors (the same dimensions) providing x^2, y^2 and z^2 in a new vector
+//     auto a = dot(r.direction(), r.direction());
+
+//     auto b = 2.0 * dot(oc, r.direction());
+//     auto c = dot(oc, oc) - radius * radius;
+//     auto discriminant = b * b - 4 * a * c;
+//     return (discriminant > 0);
+// }
+
+bool hit_sphere(const point3 &center, float radius, const ray &r)
+{
+    vec3 oc = r.origin() - center;
+    // Returns dot product of the ray direction
+    auto a = dot(r.direction(), r.direction());
+    // returns 2 x the dot product of
+    auto b = float(2.0) * dot(oc, r.direction());
+    auto c = dot(oc, oc) - radius * radius;
+    auto discriminant = b * b - 4 * a * c;
+    return (discriminant > 0);
+}
+
+// color ray_color(const ray &r)
+// {
+//     if (hit_sphere(point3(0, 0, -1), 0.5, r))
+//         return color(1, 0, 0);
+//     vec3 unit_direction = unit_vector(r.direction());
+//     auto t = 0.5 * (unit_direction.y() + 1.0);
+//     return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
+// }
+
 color ray_color(const ray &r)
 {
+    if (hit_sphere(point3(0, 0, -1), 0.5, r))
+        return color(1, 0, 0);
     vec3 unit_direction = unit_vector(r.direction());
     auto t = 0.5 * (unit_direction.y() + 1.0);
     return (1.0 - t) * color(1.0, 1.0, 1.0) + t * color(0.5, 0.7, 1.0);
@@ -69,6 +109,7 @@ int main()
 
     for (int j = image_height - 1; j >= 0; --j)
     {
+        // '\r' is carriage return function which allows
         std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush;
         for (int i = 0; i < image_width; ++i)
         {
